@@ -1,0 +1,21 @@
+{
+  "name": "glossa",
+  "version": "0.0.1",
+  "description": "The application for learning easy foreign languages",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikka22pl/glossa.git"
+  },
+  "author": "Michał Pędzich",
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap": "3.3.7",
+    "browser": "0.2.6",
+    "jquery": "3.1.1",
+    "react": "15.3.2",
+    "react-dom": "15.3.2"
+  }
+}
