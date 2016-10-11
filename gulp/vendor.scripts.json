@@ -1,0 +1,18 @@
+{
+  "chunks": {
+    "vendor": [
+      "jquery",
+      "bootstrap",
+      "react",
+      "react-dom",
+      "browser"
+    ]
+  },
+  "paths": {
+    "jquery": "node_modules/jquery/dist/jquery.min.js",
+    "bootstrap": "node_modules/bootstrap/dist/js/bootstrap.min.js",
+    "react": "node_modules/react/dist/react.min.js",
+    "react-dom": "node_modules/react-dom/dist/react-dom.min.js",
+    "browser": "node_modules/babel-core/browser.min.js"
+  }
+}
