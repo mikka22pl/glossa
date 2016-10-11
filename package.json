@@ -12,10 +12,16 @@
   "author": "Michał Pędzich",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "5.8.38",
     "bootstrap": "3.3.7",
     "browser": "0.2.6",
+    "browser-sync": "2.17.2",
+    "del": "2.2.2",
+    "gulp": "3.9.1",
+    "gulp-concat": "2.6.0",
     "jquery": "3.1.1",
     "react": "15.3.2",
-    "react-dom": "15.3.2"
+    "react-dom": "15.3.2",
+    "require-dir": "0.3.1"
   }
 }

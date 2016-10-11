@@ -9,4 +9,6 @@ var Package = React.createClass({
 	}
 });
 
-ReactDOM.render(<Package />, document.getElementById('content'));
+const content = document.getElementById('content');
+
+ReactDOM.render(<Package />, content);

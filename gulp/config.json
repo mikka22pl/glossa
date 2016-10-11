@@ -1,0 +1,18 @@
+{
+  "source": {
+    "js": {
+      "app": [
+        "app/main.js",
+        "app/app.module.js",
+        "app/app.config.js",
+        "app/**/*module.js",
+        "app/**/*!(module)*.js"
+      ],
+      "tpl": "app/**/*.tpl.html"
+    },
+    "app": "app/**/*.+(html)"
+  },
+  "destinations": {
+    "dist": "dist"
+  }
+}
