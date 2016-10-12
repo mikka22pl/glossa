@@ -12,16 +12,27 @@
   "author": "Michał Pędzich",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "5.8.38",
+    "babel-core": "6.17.0",
+    "babel-loader": "6.2.5",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-plugin-react-html-attrs": "2.0.0",
+    "babel-plugin-transform-class-properties": "6.16.0",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-preset-es2015": "6.16.0",
+    "babel-preset-react": "6.16.0",
+    "babel-preset-stage-0": "6.16.0",
     "bootstrap": "3.3.7",
     "browser": "0.2.6",
     "browser-sync": "2.17.2",
     "del": "2.2.2",
+    "font-awesome": "4.6.3",
     "gulp": "3.9.1",
     "gulp-concat": "2.6.0",
     "jquery": "3.1.1",
     "react": "15.3.2",
     "react-dom": "15.3.2",
-    "require-dir": "0.3.1"
+    "require-dir": "0.3.1",
+    "webpack": "1.13.2",
+    "webpack-stream": "3.2.0"
   }
 }
