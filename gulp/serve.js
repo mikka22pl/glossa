@@ -16,5 +16,5 @@ gulp.task('serve.dev', ['dist'], function () {
             },
             port: 5000
         });
-    gulp.watch(['**/*.html', '**/*.js'], {cwd: 'app'}, ['build.dev', reload]);
+    gulp.watch(['**/*.html', '**/*.js'], {cwd: 'dist'}, ['dist', reload]);
 });

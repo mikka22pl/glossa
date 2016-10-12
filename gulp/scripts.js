@@ -2,6 +2,7 @@
 
 var gulp       = require('gulp');
 var concat     = require('gulp-concat');
+var webpack    = require('webpack-stream');
 var fs         = require('fs');
 var path       = require('path');
 var scripts    = require('./vendor.scripts');
@@ -10,6 +11,12 @@ var scripts    = require('./vendor.scripts');
   return gulp.src('js/browser.js')
     .pipe(gulp.dest('.tmp/js'));
 });*/
+
+gulp.task('scripts.app', ['clean'], function() {
+  return gulp.src('js/app.js')
+    .pipe(webpack(require('../webpack.config.js')))
+    .pipe(gulp.dest('.tmp/js/'))
+});
 
 gulp.task('scripts.vendor', ['clean'], function () {
     var sourcePaths  = [];
@@ -30,4 +37,4 @@ gulp.task('scripts.vendor', ['clean'], function () {
         .pipe(concat(chunkName))
         .pipe(gulp.dest(".tmp/js"));
 });
-gulp.task('scripts', ['scripts.vendor']);
+gulp.task('scripts', ['scripts.vendor', 'scripts.app']);
