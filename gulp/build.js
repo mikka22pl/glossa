@@ -2,4 +2,4 @@
 
 var gulp = require('gulp');
 
-gulp.task('build.dev', ['scripts']);
+gulp.task('build.dev', ['scripts', 'styles']);
