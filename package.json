@@ -4,6 +4,7 @@
   "description": "The application for learning easy foreign languages",
   "scripts": {
     "start": "gulp serve.dev",
+    "dev": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot --port 5000 --no-info",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,11 +30,14 @@
     "font-awesome": "4.6.3",
     "gulp": "3.9.1",
     "gulp-concat": "2.6.0",
+    "history": "1.17.0",
     "jquery": "3.1.1",
     "react": "15.3.2",
     "react-dom": "15.3.2",
+    "react-router": "2.8.1",
     "require-dir": "0.3.1",
     "webpack": "1.13.2",
+    "webpack-dev-server": "1.16.2",
     "webpack-stream": "3.2.0"
   }
 }

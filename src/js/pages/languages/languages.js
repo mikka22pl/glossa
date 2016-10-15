@@ -15,9 +15,12 @@ export default class Languages extends React.Component {
 			);
 		});
 		return (
-			<div class="languages">
-				<h3>Languages</h3>
-        {nodes}
+			<div class="content">
+        <h3>Języki</h3>
+				<div class="row languages">
+					<h3>Languages</h3>
+	        {nodes}
+				</div>
 			</div>
 		);
 	}

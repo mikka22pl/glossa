@@ -7,15 +7,10 @@ var fs         = require('fs');
 var path       = require('path');
 var scripts    = require('./vendor.scripts');
 
-/*gulp.task('scripts.browser', ['clean'], function() {
-  return gulp.src('js/browser.js')
-    .pipe(gulp.dest('.tmp/js'));
-});*/
-
 gulp.task('scripts.app', ['clean'], function() {
-  return gulp.src('js/app.js')
-    .pipe(webpack(require('../webpack.config.js')))
-    .pipe(gulp.dest('.tmp/js/'))
+  return gulp.src('scripts/app.js')
+    .pipe(webpack())
+    .pipe(gulp.dest('src'));
 });
 
 gulp.task('scripts.vendor', ['clean'], function () {
@@ -35,6 +30,7 @@ gulp.task('scripts.vendor', ['clean'], function () {
     });
     return gulp.src(sourcePaths)
         .pipe(concat(chunkName))
-        .pipe(gulp.dest(".tmp/js"));
+        .pipe(gulp.dest("src"));
 });
-gulp.task('scripts', ['scripts.vendor', 'scripts.app']);
+gulp.task('scripts-dist', ['scripts.vendor', 'scripts.app']);
+gulp.task('scripts', ['scripts.vendor']);
