@@ -2,17 +2,17 @@
 
 var gulp = require('gulp');
 
-gulp.task('dist.copy', ['build.dev'], function() {
-	return gulp.src('.tmp/**/*')
-		.pipe(gulp.dest('dist'));
-});
+// gulp.task('dist.copy', ['build.dev'], function() {
+	// return gulp.src('.tmp/**/*')
+		// .pipe(gulp.dest('dist'));
+// });
 
-gulp.task('dist-js.copy', ['dist.copy'], function() {
-  return gulp.src('./js/*.js')
-    .pipe(gulp.dest('dist/js'));
-});
+//gulp.task('dist-js.copy', ['dist.copy'], function() {
+//  return gulp.src('./js/*.js')
+//    .pipe(gulp.dest('dist/js'));
+//});
 
-gulp.task('dist.html', ['dist-js.copy'], function() {
+gulp.task('dist.html', ['build-dist'], function() {
 	return gulp.src('index.html')
 		.pipe(gulp.dest('dist'));
 });

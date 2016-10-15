@@ -8,7 +8,7 @@ gulp.task('styles.css', ['clean'], function () {
         'node_modules/font-awesome/css/font-awesome.min.css'
       ])
       //.pipe(less())
-      .pipe(gulp.dest('.tmp/css'));
+      .pipe(gulp.dest('src/css'));
 });
 
 gulp.task('styles.fonts.fontawesome', ['clean'], function () {
@@ -16,7 +16,7 @@ gulp.task('styles.fonts.fontawesome', ['clean'], function () {
       [
         'node_modules/font-awesome/fonts/*'
       ])
-      .pipe(gulp.dest('.tmp/fonts'));
+      .pipe(gulp.dest('src/fonts'));
 });
 
 gulp.task('styles.fonts.bootstrap', ['clean'], function () {
@@ -24,17 +24,16 @@ gulp.task('styles.fonts.bootstrap', ['clean'], function () {
       [
         'bower_components/bootstrap/fonts/*'
       ])
-      .pipe(gulp.dest('.tmp/fonts'));
+      .pipe(gulp.dest('src/fonts'));
 });
 
-gulp.task('styles.images', ['clean'], function () {
-    return gulp.src('images/**/*.*')
-      .pipe(gulp.dest('.tmp/images'));
-});
+//gulp.task('styles.images', ['clean'], function () {
+//    return gulp.src('images/**/*.*')
+//      .pipe(gulp.dest('.tmp/images'));
+//});
 
 gulp.task('styles', [
   'styles.css',
   'styles.fonts.fontawesome',
-  'styles.fonts.bootstrap',
-  'styles.images'
+  'styles.fonts.bootstrap'
 ]);
