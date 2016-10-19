@@ -5,11 +5,16 @@ import LexerForm from "./form";
 
 export default class Lexers extends React.Component {
 
+	/*constructor(props) {
+		super(props);
+		console.log('--> Lexers:constructor');
+	}
 	componentDidMount() {
 	  console.log('Lexers :: mounted.');
-	}
+	}*/
 
 	render() {
+		console.log('Lexers' + JSON.stringify(this.props));
 		var nodes = this.props.data.map(function(item) {
 			return (
 				<Lexer {...item} key={item.key}></Lexer>

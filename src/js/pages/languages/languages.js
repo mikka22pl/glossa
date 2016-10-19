@@ -9,6 +9,7 @@ export default class Languages extends React.Component {
 	}
 
 	render() {
+		console.log('Languages');
 		var nodes = this.props.data.map(function(item) {
 			return (
 				<Language {...item} key={item.key}></Language>
