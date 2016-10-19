@@ -1,12 +1,15 @@
 import React from "react";
 
-import Languages from "./languages/languages";
+// import Lexers from "./lexers/lexers";
+// import Languages from "./languages/languages";
 
 export default class Mainpage extends React.Component {
 
 	render() {
 		return (
-			<Languages />
+			<div>
+			Mainpage
+			</div>
 		);
 	}
 };

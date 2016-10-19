@@ -15,7 +15,7 @@ export default class Nav extends React.Component {
   }
 
   render() {
-    const { location } = this.props;
+    const { onlyActiveOnIndex, location } = this.props;
     const { collapsed } = this.state;
     const navClass = collapsed ? "collapse" : "";
 
@@ -32,13 +32,13 @@ export default class Nav extends React.Component {
           </div>
           <div class={"navbar-collapse " + navClass} id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li activeClassName="active" onlyActiveOnIndex={true}>
+              <li className="" onlyActiveOnIndex={true}>
                 <IndexLink to="/" onClick={this.toggleCollapse.bind(this)}>Start</IndexLink>
               </li>
-              <li activeClassName="active">
+              <li className="active">
                 <Link to="lexers" onClick={this.toggleCollapse.bind(this)}>Lexers</Link>
               </li>
-              <li activeClassName="active">
+              <li className="active">
                 <Link to="languages" onClick={this.toggleCollapse.bind(this)}>Languages</Link>
               </li>
             </ul>

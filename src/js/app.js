@@ -14,8 +14,8 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Layout}>
       <IndexRoute component={Mainpage}></IndexRoute>
-      <Route path="lexers" component={Lexers}></Route>
-      <Route path="languages" component={Languages}></Route>
+      <Route path="lexers" name="lexers" component={Lexers}></Route>
+      <Route path="languages" name="languages" component={Languages}></Route>
     </Route>
   </Router>,
 app);
