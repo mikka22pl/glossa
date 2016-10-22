@@ -1,7 +1,8 @@
 import React from "react";
+import { PageHeader, Nav, NavItem, Glyphicon } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 import Lexer from "./lexer";
-import LexerForm from "./form";
 
 export default class Lexers extends React.Component {
 
@@ -22,10 +23,17 @@ export default class Lexers extends React.Component {
 		});
 		return (
 			<div class="content">
-        <h3>Słowniki</h3>
-				<div class="row lexers">
-					<h3>Lexers</h3>
-	        <LexerForm />
+        <PageHeader>Słowniki</PageHeader>
+				<div class="row">
+					<Nav bsStyle="pills">
+						<LinkContainer to="/lexer-edit">
+							<NavItem>
+								Add lexer <Glyphicon glyph="plus-sign"/>
+							</NavItem>
+						</LinkContainer>
+					</Nav>
+				</div>
+				<div class="row">
 	        {nodes}
 				</div>
 			</div>
