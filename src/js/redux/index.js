@@ -6,8 +6,20 @@ import thunk from 'redux-thunk';
 // import middleware from './middleware';
 import reducer from './modules/reducer';
 
+let lexers = [];
+for (let i=1; i<=3; i++) {
+  lexers.push({
+    id: i,
+    name: 'Lexer-' + i,
+    descr: 'description_' + i
+  });
+}
+
 const initialState = {
-  language: null
+  language: null,
+  lexers: {
+    list: lexers
+  }
 }
 
 /*const logger = (store) => (next) => (action) => {
