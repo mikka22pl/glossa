@@ -17,7 +17,12 @@ const languageReducer = (state = {}, action) => {
   }
 };
 
+const lexerReducer = (state = {}, action) => {
+  return state;
+};
+
 export default combineReducers({
   languageReducer,
+  lexers: lexerReducer,
   routing: routerReducer
 });
