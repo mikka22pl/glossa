@@ -10,13 +10,13 @@ class LexerEdit extends React.Component {
 
   constructor(props) {
     super(props);
-    this.form_type =  (props.initialValues.id > 0) ? 'edit' : 'add';
+    this.form_type =  (props.initialValues.id > 0) ? 'EDIT' : 'ADD';
     this.formSubmit = this.formSubmit.bind(this);
   }
 
   formSubmit(values) {
     this.props.dispatch({
-      type: 'users.' + this.form_type,
+      type: 'LEXER_' + this.form_type,
       id: values.id,
       name: values.name,
       descr: values.descr
@@ -27,7 +27,7 @@ class LexerEdit extends React.Component {
   render() {
     return (
       <div>
-        <PageHeader>Lexer {'edit' === this.form_type ? 'edit' : 'add'}</PageHeader>
+        <PageHeader>Lexer {'EDIT' === this.form_type ? 'edit' : 'add'}</PageHeader>
         <Form horizontal onSubmit={this.props.handleSubmit(this.formSubmit)}>
           <Field name="name" component={LexerEdit.renderName}/>
           <Field name="descr" component={LexerEdit.renderDescr}/>

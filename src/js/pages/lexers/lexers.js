@@ -4,6 +4,7 @@ import { PageHeader, Nav, NavItem, Glyphicon } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 import Lexer from "./lexer";
+import LexerDelete from "./LexerDelete";
 
 class Lexers extends React.Component {
 
@@ -19,7 +20,7 @@ class Lexers extends React.Component {
 		console.log('Lexers' + JSON.stringify(this.props));
 		var nodes = this.props.lexers.map(function(item) {
 			return (
-				<Lexer {...item} key={item.key}></Lexer>
+				<Lexer lexer={item} key={item.key}></Lexer>
 			);
 		});
 		return (
@@ -37,6 +38,7 @@ class Lexers extends React.Component {
 				<div class="row">
 	        {nodes}
 				</div>
+				<LexerDelete />
 			</div>
 		);
 	}

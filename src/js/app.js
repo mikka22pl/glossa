@@ -27,7 +27,7 @@ ReactDOM.render(
         <IndexRoute component={Mainpage}></IndexRoute>
         <Route path="lexers" name="lexers" component={Lexers}></Route>
         <Route path="languages" name="languages" component={Languages}></Route>
-        <Route path="lexer-edit" name="lexer-edit" component={LexerEdit}></Route>
+        <Route path="lexer-edit(/:id)" name="lexer-edit" component={LexerEdit}></Route>
       </Route>
     </Router>
   </Provider>,
