@@ -4,7 +4,7 @@ import { routerMiddleware } from "react-router-redux";
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 // import middleware from './middleware';
-import reducer from './modules/reducer';
+import reducer from './modules';
 
 let lexers = [];
 for (let i=1; i<=3; i++) {

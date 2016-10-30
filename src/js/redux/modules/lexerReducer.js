@@ -1,22 +1,6 @@
-import { combineReducers } from 'redux';
-import { reducer as formReducer } from "redux-form";
-import { routerReducer } from "react-router-redux";
 
-import { CHOOSE_LANGUAGE, LEXER_ADD, LEXER_EDIT, LEXER_DELETE,
+import { LEXER_ADD, LEXER_EDIT, LEXER_DELETE,
   LEXER_MODAL_DELETE_SHOW, LEXER_MODAL_DELETE_HIDE } from '../../constants';
-
-const languageReducer = (state = {}, action) => {
-  console.log('language reducer', action.type);
-  switch (action.type) {
-    case CHOOSE_LANGUAGE:
-      return {
-        ...state,
-        language: action.payload
-      }
-    default:
-      return state;
-  }
-};
 
 const lexerReducer = (state = {}, action) => {
   let new_state = JSON.parse(JSON.stringify(state));
@@ -80,9 +64,4 @@ const lexerReducer = (state = {}, action) => {
   }
 };
 
-export default combineReducers({
-  languageReducer,
-  form: formReducer,
-  lexers: lexerReducer,
-  routing: routerReducer
-});
+export default lexerReducer;

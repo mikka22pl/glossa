@@ -20,7 +20,7 @@ class Lexers extends React.Component {
 		console.log('Lexers' + JSON.stringify(this.props));
 		var nodes = this.props.lexers.map(function(item) {
 			return (
-				<Lexer lexer={item} key={item.key}></Lexer>
+				<Lexer lexer={item} key={item.id}></Lexer>
 			);
 		});
 		return (
