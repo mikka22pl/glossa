@@ -1,5 +1,8 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { Link } from "react-router";
+import { CHOOSE_LANGUAGE } from '../../constants';
+
 import { chooseLanguage } from '../../actions/language';
 
 @connect((store) => {
@@ -11,19 +14,22 @@ import { chooseLanguage } from '../../actions/language';
 export default class Language extends React.Component {
 	constructor(props) {
 		super(props);
-		this.chooseLanguage = this.chooseLanguage.bind(this);
+		this.onLanguageChange = this.onLanguageChange.bind(this);
 	}
-	chooseLanguage(event) {
-		// this.props.chooseLanguage(this.props.dataset.id);
+
+	onLanguageChange(event) {
+	  const language_id = Number(event.target.dataset.id);
+		this.props.dispatch(chooseLanguage(language_id));
 	}
+
 	render() {
 
 		return (
 			<div class="col-sm-2 language">
-				<a href="#" data-id={this.props.id} onClick={this.chooseLanguage}>
-					<img src={'images/flag_' + this.props.code + '.gif'} title={this.props.name} />
-					<span>{this.props.name}</span>
-				</a>
+				<Link onClick={this.onLanguageChange} data-id={this.props.id}>
+					<img src={'images/flag_' + this.props.code + '.gif'} title={this.props.name} data-id={this.props.id} />
+					<span data-id={this.props.id}>{this.props.name}</span>
+				</Link>
 			</div>
 		);
 	}
