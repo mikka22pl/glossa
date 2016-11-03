@@ -1,34 +1,21 @@
-import { createStore, applyMiddleware } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { browserHistory } from "react-router";
 import { routerMiddleware } from "react-router-redux";
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-// import middleware from './middleware';
 import reducer from './modules';
-
-let lexers = [];
-for (let i=1; i<=3; i++) {
-  lexers.push({
-    id: i,
-    name: 'Lexer-' + i,
-    descr: 'description_' + i
-  });
-}
+import languages from '../data/languages';
+import lexers from '../data/lexers';
 
 const initialState = {
   language: null,
-  lexers: {
-    list: lexers
-  }
+  languages: languages,
+  lexers: lexers
 }
 
-/*const logger = (store) => (next) => (action) => {
-  console.log("action.fired", action);
-}*/
-const middleware = applyMiddleware(routerMiddleware(browserHistory));
+const enhancers = compose(
+  applyMiddleware(routerMiddleware(browserHistory)),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+);
 
-export default createStore(reducer, initialState, middleware);
-
-/*store.subscribe(() => {
-  console.log("store changed", store.getState());
-})*/
+export default createStore(reducer, initialState, enhancers);
