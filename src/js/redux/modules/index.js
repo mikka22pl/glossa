@@ -4,11 +4,12 @@ import { routerReducer } from "react-router-redux";
 
 import lexerReducer from './lexerReducer';
 import languageReducer from './languageReducer';
-
+import languagesReducer from './languagesReducer';
 
 export default combineReducers({
   language: languageReducer,
-  form: formReducer,
+  languages: languagesReducer,
   lexers: lexerReducer,
+  form: formReducer,
   routing: routerReducer
 });

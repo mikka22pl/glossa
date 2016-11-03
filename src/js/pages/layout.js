@@ -9,13 +9,13 @@ export default class Layout extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	
+
 	render() {
 		const { location } = this.props;
 
 		return (
 			<div>
-		    <Nav location={location} />
+		    <Nav location={location} {...this.props} />
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12">

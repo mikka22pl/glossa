@@ -44,16 +44,9 @@ class Lexers extends React.Component {
 	}
 };
 
-/*Lexers.defaultProps = {
-	data: [
-		{key:"1", name: "Języki", code: "languages"},
-		{key:"2", name: "Uzytkownicy", code: "users"}
-	]
-};*/
-
 function mapStateToProps(state) {
 	return ({
-		lexers: state.lexers.list
+		lexers: state.lexers
 	})
 }
 

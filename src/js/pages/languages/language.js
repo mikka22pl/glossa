@@ -26,8 +26,8 @@ export default class Language extends React.Component {
 
 		return (
 			<div class="col-sm-2 language">
-				<Link onClick={this.onLanguageChange} data-id={this.props.id}>
-					<img src={'images/flag_' + this.props.code + '.gif'} title={this.props.name} data-id={this.props.id} />
+				<Link to={'courses/' + this.props.id} onClick={this.onLanguageChange} data-id={this.props.id}>
+					<img src={'/images/flag_' + this.props.code + '.gif'} title={this.props.name} data-id={this.props.id} />
 					<span data-id={this.props.id}>{this.props.name}</span>
 				</Link>
 			</div>

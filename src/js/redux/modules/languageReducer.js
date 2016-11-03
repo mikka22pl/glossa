@@ -7,7 +7,6 @@ const languageReducer = (state = {}, action) => {
     case CHOOSE_LANGUAGE:
       console.log('chosen language ' + action.payload);
       return {
-        ...state,
         id: action.payload
       }
     default:
