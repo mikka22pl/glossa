@@ -10,7 +10,8 @@ import lexers from '../data/lexers';
 const initialState = {
   language: null,
   languages: languages,
-  lexers: lexers
+  lexers: lexers,
+  course: null,
 }
 
 const enhancers = compose(
