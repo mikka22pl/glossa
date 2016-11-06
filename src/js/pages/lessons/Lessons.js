@@ -1,28 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import CourseItem from './CourseItem';
+import LessonItem from './LessonItem';
 
-class Courses extends React.Component {
+class Lessons extends React.Component {
 
   render() {
     const language = this.props.language;
-    const courses = language.courses || [];
-    const items = courses.map(function(item) {
+    const course = this.props.course;
+    const lessons = course.lessons || [];
+    const items = lessons.map(function(item) {
       return (
-        <CourseItem {...item} key={item.id} />
+        <LessonItem {...item} key={item.id} />
       );
     });
     return (
       <div class="content">
-        <h3>Courses</h3>
+        <h3>Lessons</h3>
         {items}
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
+/*function mapStateToProps(state) {
   const languages = $.map(state.languages, (value, index) => {
     return [value];
   });
@@ -30,9 +31,7 @@ function mapStateToProps(state) {
     return item.id === state.language.id;
   })[0];
 	return ({
-		language: language,
-    languages: languages
+		language: language
 	});
-}
-
-export default connect(mapStateToProps)(Courses);
+}*/
+export default connect(Lessons);
