@@ -2,19 +2,23 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import { browserHistory } from "react-router";
 import { routerMiddleware } from "react-router-redux";
 import logger from 'redux-logger';
-import thunk from 'redux-thunk';
+import thunkMiddleware from 'redux-thunk';
 import reducer from './modules';
 import languages from '../data/languages';
 import lexers from '../data/lexers';
 
 const initialState = {
   language: null,
-  languages: languages,
-  lexers: lexers
+  languages: {list:[]},
+  lexers: lexers,
+  courses: {list:[]}
 }
 
 const enhancers = compose(
-  applyMiddleware(routerMiddleware(browserHistory)),
+  applyMiddleware(
+    thunkMiddleware,
+    routerMiddleware(browserHistory)
+  ),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 

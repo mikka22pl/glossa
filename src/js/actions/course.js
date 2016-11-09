@@ -1,30 +1,23 @@
 import axios from 'axios';
-import { CHOOSE_LANGUAGE } from '../constants';
 
-export function chooseLanguage(id) {
+export const FETCH_COURSES_START = 'FETCH_COURSES_START';
+export function getCourses() {
   return {
-    type: CHOOSE_LANGUAGE,
-    payload: id
-  };
-};
-export const FETCH_LANGUAGES_START = 'FETCH_LANGUAGES_START';
-export function getLanguages() {
-  return {
-    type: FETCH_LANGUAGES_START
+    type: FETCH_COURSES_START
   };
 }
-export const FETCH_LANGUAGES_ERROR = 'FETCH_LANGUAGES_ERROR';
-export function getLanguagesError(error) {
+export const FETCH_COURSES_ERROR = 'FETCH_COURSES_ERROR';
+export function getCoursesError(error) {
   return {
-    type: FETCH_LANGUAGES_ERROR,
+    type: FETCH_COURSES_ERROR,
     payload: error
   };
 }
 
-export const RECEIVE_LANGUAGES = 'RECEIVE_LANGUAGES';
-export function receiveLanguages(json) {
+export const RECEIVE_COURSES = 'RECEIVE_COURSES';
+export function receiveCourses(json) {
   return {
-    type: RECEIVE_LANGUAGES,
+    type: RECEIVE_COURSES,
     payload: json,
     receiveAt: Date.now()
   }
@@ -39,13 +32,13 @@ var config = {
   }
 };
 
-export function fetchLanguages() {
+export function fetchCourses(languageId) {
   return function(dispatch) {
     // first dispatch: the app state is updated to inform that the API call is starting
-    dispatch(getLanguages());
+    dispatch(getCourses());
 
     return axios({
-      url: 'http://localhost:8080/languages',
+      url: 'http://localhost:8080/courses/' + languageId,
       config: config,
       timeout: 20000,
       method: 'get',
@@ -53,10 +46,10 @@ export function fetchLanguages() {
     }).then((response) => {
       //let arr = Array.prototype.slice.call(response.data);
       //  console.log(arr);
-      dispatch(receiveLanguages(response.data));
+      dispatch(receiveCourses(response.data));
     }).catch((error) => {
       console.log('error: ', error);
-      dispatch(getLanguagesError(error));
+      dispatch(getCoursesError(error));
     });
   }
 }

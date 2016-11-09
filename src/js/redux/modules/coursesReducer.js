@@ -1,30 +1,29 @@
-import { FETCH_LANGUAGES_START, FETCH_LANGUAGES_ERROR, RECEIVE_LANGUAGES } from '../../actions/language';
+import { FETCH_COURSES_START, FETCH_COURSES_ERROR, RECEIVE_COURSES } from '../../actions/course';
 
-const languagesReducer = (state = {languages: []}, action) => {
+const coursesReducer = (state = {courses: []}, action) => {
   switch (action.type) {
-    case FETCH_LANGUAGES_START:
+    case FETCH_COURSES_START:
       return {
         ...state,
         fetching: true
       };
-    case FETCH_LANGUAGES_ERROR:
+    case FETCH_COURSES_ERROR:
       return {
         ...state,
         fetching: false,
         error: action.payload
       };
-    case RECEIVE_LANGUAGES:
-      let new_state = {
+    case RECEIVE_COURSES:
+      return {
         ...state,
         fetching: false,
         fetched: true,
         list: action.payload,
         receiveAt: action.receiveAt
       };
-      return new_state;
     default:
       return state;
   }
 };
 
-export default languagesReducer;
+export default coursesReducer;
