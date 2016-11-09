@@ -11,7 +11,8 @@ const initialState = {
   language: null,
   languages: {list:[]},
   lexers: lexers,
-  courses: {list:[]}
+  courses: {list:[]},
+  course: null
 }
 
 const enhancers = compose(
