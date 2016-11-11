@@ -9,8 +9,8 @@ class Courses extends React.Component {
 
   constructor(props) {
     super(props);
-      console.log('courses lang ' + this.props.params.id);
-      this.props.fetchCourses(this.props.params.id);
+    console.log('courses lang ' + this.props.params.id);
+    this.props.fetchCourses(this.props.params.id);
   }
 
   componentWillMount() {

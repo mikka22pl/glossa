@@ -17,7 +17,7 @@ class CourseItem extends React.Component {
   render() {
     return (
       <div class="course-item">
-        <Link to={'/course/' + this.props.id} onClick={this.onCourseChange}>{this.props.language.id} - {this.props.name}</Link>
+        <Link to={'/lessons/' + this.props.id} onClick={this.onCourseChange}>{this.props.language.id} - {this.props.name}</Link>
       </div>
     );
   }

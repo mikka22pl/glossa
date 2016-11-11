@@ -12,6 +12,7 @@ import Lexers from "./pages/lexers/lexers";
 import LexerEdit from "./pages/lexers/LexerEdit";
 import Courses from "./pages/courses/Courses";
 import Course from "./pages/courses/Course";
+import Lessons from "./pages/lessons/Lessons";
 import Mainpage from "./pages/mainpage";
 import store from './redux';
 
@@ -32,6 +33,7 @@ ReactDOM.render(
         <Route path="lexer-edit(/:id)" name="lexer-edit" component={LexerEdit}></Route>
         <Route path="courses(/:id)" name="courses" component={Courses}></Route>
         <Route path="course(/:id)" name="course" component={Course}></Route>
+        <Route path="lessons(/:id)" name="lessons" component={Lessons}></Route>
       </Route>
     </Router>
   </Provider>,
