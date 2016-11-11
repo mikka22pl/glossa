@@ -7,13 +7,17 @@ import languageReducer from './languageReducer';
 import languagesReducer from './languagesReducer';
 import coursesReducer from './coursesReducer';
 import courseReducer from './courseReducer';
+import lessonsReducer from './lessonsReducer';
+import lessonReducer from './lessonReducer';
 
 export default combineReducers({
   language: languageReducer,
   languages: languagesReducer,
   courses: coursesReducer,
-  lexers: lexerReducer,
   course: courseReducer,
+  lessons: lessonsReducer,
+  lesson: lessonReducer,
+  lexers: lexerReducer,
   form: formReducer,
   routing: routerReducer
 });

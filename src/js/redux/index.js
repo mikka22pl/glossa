@@ -4,7 +4,7 @@ import { routerMiddleware } from "react-router-redux";
 import logger from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import reducer from './modules';
-import languages from '../data/languages';
+//import languages from '../data/languages';
 import lexers from '../data/lexers';
 
 const initialState = {
@@ -12,7 +12,9 @@ const initialState = {
   languages: {list:[]},
   lexers: lexers,
   courses: {list:[]},
-  course: null
+  course: null,
+  lessons: {list: []},
+  lesson: null
 }
 
 const enhancers = compose(

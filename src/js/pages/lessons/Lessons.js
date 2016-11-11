@@ -1,15 +1,20 @@
 import React from "react";
+import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 
+import * as lessonActions from '../../actions/lesson';
 import LessonItem from './LessonItem';
 
 class Lessons extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.props.fetchLessons(this.props.params.id);
+  }
+
   render() {
-    const language = this.props.language;
-    const course = this.props.course;
-    const lessons = course.lessons || [];
-    const items = lessons.map(function(item) {
+    const lessons = this.props.lessons || [];
+    const items = lessons.list.map(function(item) {
       return (
         <LessonItem {...item} key={item.id} />
       );
@@ -23,15 +28,12 @@ class Lessons extends React.Component {
   }
 }
 
-/*function mapStateToProps(state) {
-  const languages = $.map(state.languages, (value, index) => {
-    return [value];
-  });
-  const language = languages.filter((item) => {
-    return item.id === state.language.id;
-  })[0];
+function mapStateToProps(state) {
 	return ({
-		language: language
+		lessons: state.lessons
 	});
-}*/
-export default connect(Lessons);
+}
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators(lessonActions, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Lessons);
