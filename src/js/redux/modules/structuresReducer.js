@@ -1,19 +1,19 @@
-import { FETCH_LESSONS_START, FETCH_LESSONS_ERROR, RECEIVE_LESSONS } from '../../actions/lesson';
+import { FETCH_STRUCTURE_START, FETCH_STRUCTURE_ERROR, RECEIVE_STRUCTURES } from '../../actions/structures';
 
-const lessonsReducer = (state = {lessons: []}, action) => {
+const structuresReducer = (state = {structures: []}, action) => {
   switch (action.type) {
-    case FETCH_LESSONS_START:
+    case FETCH_STRUCTURE_START:
       return {
         ...state,
         fetching: true
       };
-    case FETCH_LESSONS_ERROR:
+    case FETCH_STRUCTURE_ERROR:
       return {
         ...state,
         fetching: false,
         error: action.payload
       };
-    case RECEIVE_LESSONS:
+    case RECEIVE_STRUCTURES:
       return {
         ...state,
         fetching: false,
@@ -26,4 +26,4 @@ const lessonsReducer = (state = {lessons: []}, action) => {
   }
 };
 
-export default lessonsReducer;
+export default structuresReducer;

@@ -1,24 +1,24 @@
-import { FETCH_LESSONS_START, FETCH_LESSONS_ERROR, RECEIVE_LESSONS } from '../../actions/lesson';
+import { FETCH_SENTENCE_START, FETCH_SENTENCE_ERROR, RECEIVE_SENTENCE } from '../../actions/sentence';
 
-const lessonsReducer = (state = {lessons: []}, action) => {
+const sentenceReducer = (state = {sentence: {words:[]}}, action) => {
   switch (action.type) {
-    case FETCH_LESSONS_START:
+    case FETCH_SENTENCE_START:
       return {
         ...state,
         fetching: true
       };
-    case FETCH_LESSONS_ERROR:
+    case FETCH_SENTENCE_ERROR:
       return {
         ...state,
         fetching: false,
         error: action.payload
       };
-    case RECEIVE_LESSONS:
+    case RECEIVE_SENTENCE:
       return {
         ...state,
         fetching: false,
         fetched: true,
-        list: action.payload,
+        words: action.payload.words,
         receiveAt: action.receiveAt
       };
     default:
@@ -26,4 +26,4 @@ const lessonsReducer = (state = {lessons: []}, action) => {
   }
 };
 
-export default lessonsReducer;
+export default sentenceReducer;

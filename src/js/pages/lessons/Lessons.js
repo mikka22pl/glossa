@@ -13,10 +13,12 @@ class Lessons extends React.Component {
   }
 
   render() {
+    console.log('language id:' + this.props.language.id);
+    const language = this.props.language;
     const lessons = this.props.lessons || [];
     const items = lessons.list.map(function(item) {
       return (
-        <LessonItem {...item} key={item.id} />
+        <LessonItem {...item} key={item.id} language={language}/>
       );
     });
     return (
@@ -30,6 +32,7 @@ class Lessons extends React.Component {
 
 function mapStateToProps(state) {
 	return ({
+    language: state.language,
 		lessons: state.lessons
 	});
 }
