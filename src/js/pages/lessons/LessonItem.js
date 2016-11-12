@@ -6,7 +6,7 @@ export default class LessonItem extends React.Component {
   render() {
     return (
       <div class="course-item">
-        <Link to={'course/' + this.props.id}>{this.props.name}</Link>
+        <Link to={'/lesson/' + this.props.language.id + '/' + this.props.id}>{this.props.name}</Link>
       </div>
     );
   }

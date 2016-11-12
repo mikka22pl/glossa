@@ -9,6 +9,8 @@ import coursesReducer from './coursesReducer';
 import courseReducer from './courseReducer';
 import lessonsReducer from './lessonsReducer';
 import lessonReducer from './lessonReducer';
+import structuresReducer from './structuresReducer';
+import sentenceReducer from './sentenceReducer';
 
 export default combineReducers({
   language: languageReducer,
@@ -17,6 +19,8 @@ export default combineReducers({
   course: courseReducer,
   lessons: lessonsReducer,
   lesson: lessonReducer,
+  structures: structuresReducer,
+  sentence: sentenceReducer,
   lexers: lexerReducer,
   form: formReducer,
   routing: routerReducer

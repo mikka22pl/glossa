@@ -14,7 +14,9 @@ const initialState = {
   courses: {list:[]},
   course: null,
   lessons: {list: []},
-  lesson: null
+  lesson: null,
+  structures: {list: []},
+  sentence: {}
 }
 
 const enhancers = compose(
