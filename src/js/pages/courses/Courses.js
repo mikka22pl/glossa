@@ -1,6 +1,7 @@
 import React from "react";
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
+import { Link } from "react-router";
 
 import * as courseActions from '../../actions/course';
 import CourseItem from './CourseItem';
@@ -9,13 +10,9 @@ class Courses extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log('courses lang ' + this.props.params.id);
     this.props.fetchCourses(this.props.params.id);
   }
 
-  componentWillMount() {
-    console.log('will mount ' + this.props.params.id);
-  }
   render() {
     const language = this.props.language;
     const courses = this.props.courses.list || [];
@@ -27,6 +24,10 @@ class Courses extends React.Component {
     return (
       <div class="content">
         <h3>Courses</h3>
+        <div>
+          <Link to={`/language/${language.id}/wordadd`} class="btn btn-primary">Add words</Link>
+          <Link to={`/words/${language.id}`} class="btn btn-primary">Words</Link>
+        </div>
         {items}
       </div>
     );
@@ -34,14 +35,14 @@ class Courses extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const languages = $.map(state.languages, (value, index) => {
+  /*const languages = $.map(state.languages, (value, index) => {
     return [value];
   });
   const language = languages.filter((item) => {
     return item.id === state.language.id;
-  })[0];
+  })[0];*/
 	return ({
-		language: language,
+		language: state.language,
     courses: state.courses
 	});
 }

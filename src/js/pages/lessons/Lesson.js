@@ -39,16 +39,14 @@ class Lesson extends React.Component {
     //console.log(sentence.words.map((item) => {item.word.name}));
     const sentence = words.map(function(item) {
       return (
-        <div key={item.id}>
-          {item.ordering} {item.word.name} ({item.word.id})
-        </div>
+        <span key={item.id}> {item.word.name} </span>
       );
     });
     return (
       <div class="lesson">
         {items}
         <button class="btn btn-primary" onClick={this.onStart}>Start</button>
-        {sentence}
+        <p>{sentence}</p>
       </div>
     );
   }

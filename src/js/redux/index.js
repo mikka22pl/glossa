@@ -3,6 +3,7 @@ import { browserHistory } from "react-router";
 import { routerMiddleware } from "react-router-redux";
 import logger from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
+
 import reducer from './modules';
 //import languages from '../data/languages';
 import lexers from '../data/lexers';
@@ -16,7 +17,8 @@ const initialState = {
   lessons: {list: []},
   lesson: null,
   structures: {list: []},
-  sentence: {}
+  sentence: {},
+  words: {list: []}
 }
 
 const enhancers = compose(
