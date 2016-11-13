@@ -11,8 +11,9 @@ import lessonsReducer from './lessonsReducer';
 import lessonReducer from './lessonReducer';
 import structuresReducer from './structuresReducer';
 import sentenceReducer from './sentenceReducer';
+import wordsReducer from './wordsReducer';
 
-export default combineReducers({
+const reducer = combineReducers({
   language: languageReducer,
   languages: languagesReducer,
   courses: coursesReducer,
@@ -22,6 +23,9 @@ export default combineReducers({
   structures: structuresReducer,
   sentence: sentenceReducer,
   lexers: lexerReducer,
+  words: wordsReducer,
   form: formReducer,
   routing: routerReducer
 });
+
+export default reducer;
