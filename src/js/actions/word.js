@@ -40,7 +40,7 @@ export function fetchWords(languageId, limit = null) {
     const url = limit === 'top10' ? limit + '/' + languageId : languageId;
     console.log(url);
     return axios({
-      url: 'http://localhost:8080/words/' + url,
+      url: 'http://localhost:8080/glossa/words/' + url,
       config: config,
       timeout: 20000,
       method: 'get',
@@ -56,10 +56,28 @@ export function fetchWords(languageId, limit = null) {
   }
 }
 
+export function fetchWordsWithGroups(languageId) {
+  return function(dispatch) {
+    dispatch(getWords());
+    return axios({
+      url: 'http://localhost:8080/glossa/words/group/' + languageId,
+      config: config,
+      timeout: 20000,
+      method: 'get',
+      responseType: 'json'
+    }).then ((response) => {
+      dispatch(receiveWords(response.data));
+    }).catch((error) => {
+      console.err('error', error);
+      dispatch(getWordsError(error));
+    })
+  }
+}
+
 export function saveWord(id, word, languageId) {
   return function(dispatch) {
     return axios({
-      url: 'http://localhost:8080/addWord',
+      url: 'http://localhost:8080/glossa/addWord',
       config: config,
       timeout: 20000,
       method: 'post',

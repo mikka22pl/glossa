@@ -1,1 +1,12 @@
 .language { height: 100px; border: 1px solid #ccc; text-align: center;}
+.words-list ul ul {
+  display: inline;
+  margin: 20px;
+}
+.words-list ul ul li {
+  display: inherit;
+  border: 1px solid #555;
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin: 0 10px;
+}
