@@ -27,6 +27,9 @@ class Checkbox extends React.Component {
       },
       stopPropagation() {
         e.stopPropagation();
+      },
+      preventDefault() {
+        e.preventDefault();
       }
     });
   }
