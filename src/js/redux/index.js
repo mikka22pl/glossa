@@ -11,14 +11,15 @@ import lexers from '../data/lexers';
 const initialState = {
   language: null,
   languages: {list:[]},
-  lexers: lexers,
+  lexer: {id:0, name:'', descr:''},
+  lexers: {list: []},
   courses: {list:[]},
   course: null,
   lessons: {list: []},
   lesson: null,
   structures: {list: []},
   sentence: {},
-  words: {list: []}
+  words: {list: []},
 }
 
 const enhancers = compose(

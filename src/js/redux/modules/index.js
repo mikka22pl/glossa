@@ -3,6 +3,7 @@ import { reducer as formReducer } from "redux-form";
 import { routerReducer } from "react-router-redux";
 
 import lexerReducer from './lexerReducer';
+import lexersReducer from './lexersReducer';
 import languageReducer from './languageReducer';
 import languagesReducer from './languagesReducer';
 import coursesReducer from './coursesReducer';
@@ -22,7 +23,8 @@ const reducer = combineReducers({
   lesson: lessonReducer,
   structures: structuresReducer,
   sentence: sentenceReducer,
-  lexers: lexerReducer,
+  lexer: lexerReducer,
+  lexers: lexersReducer,
   words: wordsReducer,
   form: formReducer,
   routing: routerReducer

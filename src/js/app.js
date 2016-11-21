@@ -8,8 +8,8 @@ import { syncHistoryWithStore } from "react-router-redux";
 
 import Languages from "./pages/languages/languages";
 import Layout from "./pages/layout";
-import Lexers from "./pages/lexers/lexers";
-import LexerEdit from "./pages/lexers/LexerEdit";
+import LexersPage from "./pages/lexers/LexersPage";
+import LexerEditPage from "./pages/lexers/LexerEditPage";
 import Courses from "./pages/courses/Courses";
 import Course from "./pages/courses/Course";
 import Lessons from "./pages/lessons/Lessons";
@@ -31,10 +31,10 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={Layout}>
         <IndexRoute component={Mainpage}></IndexRoute>
-        <Route path="lexers" name="lexers" component={Lexers}></Route>
+        <Route path="lexers(/:id)" name="lexers" component={LexersPage}></Route>
         <Route path="languages" name="languages" component={Languages}></Route>
         <Route path="language/:id/wordadd" name="wordadd" component={WordAdd}></Route>
-        <Route path="lexer-edit(/:id)" name="lexer-edit" component={LexerEdit}></Route>
+        <Route path="lexer-edit(/:id)" name="lexer-edit" component={LexerEditPage}></Route>
         <Route path="courses(/:id)" name="courses" component={Courses}></Route>
         <Route path="course(/:id)" name="course" component={Course}></Route>
         <Route path="lessons(/:id)" name="lessons" component={Lessons}></Route>

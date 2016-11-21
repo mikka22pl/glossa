@@ -4,10 +4,16 @@ import { connect } from "react-redux";
 
 import * as wordsActions from '../../actions/word';
 import WordsList from '../../components/WordsList';
+import Checkbox from '../../components/forms/Checkbox';
 
 class Words extends React.Component {
   componentWillMount() {
-    this.props.fetchWords(this.props.language.id, 'all');
+    this.props.fetchWordsWithGroups(this.props.language.id);
+    this.showAllToggle = this.showAllToggle.bind(this);
+  }
+
+  showAllToggle(e) {
+    console.log('check', e.target);
   }
 
   render() {
@@ -15,6 +21,9 @@ class Words extends React.Component {
     return (
       <div>
         <h2>Words</h2>
+        <div>
+          <Checkbox name="show_all" label="Show all" onChange={this.showAllToggle} {...this.props} />
+        </div>
         <WordsList list={words}/>
       </div>
     );
