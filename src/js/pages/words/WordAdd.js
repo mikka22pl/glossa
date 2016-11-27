@@ -6,7 +6,7 @@ import { Field, reduxForm } from 'redux-form';
 
 import * as wordActions from '../../actions/word';
 import WordAddForm from '../../components/forms/WordAddForm';
-import WordsList from '../../components/WordsList';
+import WordsList from '../../components/words/WordsList';
 
 class WordAdd extends React.Component {
 

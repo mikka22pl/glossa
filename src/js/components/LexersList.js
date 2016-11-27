@@ -25,7 +25,7 @@ class LexersList extends React.Component {
   render() {
     const lexers = this.props.lexers.list || [];
 		const nodes = lexers.map(function(item) {
-      const ed = this.onEdit;
+      // const ed = this.onEdit;
 			return (
 				<Lexer lexer={item} key={item.id} onEdit={this.onEdit.bind(this, item)} onShow={this.props.onShow}></Lexer>
 			);

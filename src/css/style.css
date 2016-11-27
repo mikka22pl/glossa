@@ -10,3 +10,61 @@
   padding: 2px 4px;
   margin: 0 10px;
 }
+
+a.choose-box {
+  display: block;
+  border: 2px solid #A0C991;
+  border-radius: 4px;
+  background-color: #EEFFE8;
+  padding: 6px 12px;
+  color: #729664;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.choose-box.on {
+  background-color: #CEE2C7;
+  color: #4A6B3E;
+}
+a.choose-box.active {
+  background-color: #b4cc7b;
+  border: 2px solid #92ac53;
+  color: #5d712b;
+}
+ul.choose-box-list,ul.choose-box-list li {
+  list-style-type: none;
+  margin: 0; padding: 0;
+}
+ul.choose-box-list li {
+  line-height: 1.6em;
+  margin: 2px 0px;
+}
+.words-list ul,.words-list li {
+  list-style-type: none;
+  margin: 0; padding: 0;
+}
+.words-list li {
+  clear: left;
+}
+.brick {
+  display: block;
+  float: left;
+  padding: 3px 7px;
+  border-bottom: 2px solid #C5D5EA;
+  cursor: pointer;
+  color: #6681AD;
+  text-decoration: none;
+}
+.brick.hover {
+  background-color: #B8CEEF;
+  color: #4E6487;
+}
+.brick.on {
+  background-color: #4D6B9B;
+  color: #D3DDED;
+}
+.asg-func {
+  background-color: #FFF2F2;
+}
+.asg-cat {
+  background-color: #EAFCE5;
+}

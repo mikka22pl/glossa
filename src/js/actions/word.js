@@ -23,6 +23,27 @@ export function receiveWords(json) {
   }
 }
 
+export const ASSIGN_FUNCTION_START = 'ASSIGN_FUNCTION_START';
+function assignFunctionAction(assignee) {
+  return {
+    type: ASSIGN_FUNCTION_START,
+    payload: assignee
+  }
+}
+export const ASSIGN_FUNCTION = 'ASSIGN_FUNCTION';
+function assignFunctionAction(json) {
+  return {
+    type: ASSIGN_FUNCTION,
+    payload: json
+  }
+}export const ASSIGN_FUNCTION_ERROR = 'ASSIGN_FUNCTION_ERROR';
+function assignFunctionAction(error) {
+  return {
+    type: ASSIGN_FUNCTION_ERROR,
+    payload: error
+  }
+}
+
 var config = {
   headers: {
     'Content-Type': 'application/json',
@@ -84,6 +105,26 @@ export function saveWord(id, word, languageId) {
       data: {id: id, name: word, languageId: languageId}
     }).then((response) => {
       //dispatch(saveWord())
+    }).catch ((error) => {
+      console.err('error ', error);
+    });
+  }
+}
+
+export function assignFunction(assignee) {
+  return function(dispatch) {
+    let word = assignee.word;
+    word.functions = assignee.func;
+    word.categories = assignee.cats;
+    dispatch(assignFunctionAction(assignee));
+    return axios({
+      url: 'http://localhost:8080/glossa/assignWord',
+      config: config,
+      timeout: 20000,
+      method: 'post',
+      data: word
+    }).then((response) => {
+      //dispatch(assignFunctionAction(word));
     }).catch ((error) => {
       console.err('error ', error);
     });
