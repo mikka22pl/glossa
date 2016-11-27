@@ -1,23 +1,29 @@
 import axios from 'axios';
 
 export const FETCH_LEXERS_START = 'FETCH_LEXERS_START';
-export function getLexers() {
+export const FETCH_LEXERS_FUNC_START = 'FETCH_LEXERS_FUNC_START';
+export const FETCH_LEXERS_CAT_START = 'FETCH_LEXERS_CAT_START';
+export function getLexers(actionType) {
   return {
-    type: FETCH_LEXERS_START
+    type: actionType
   };
 }
 export const FETCH_LEXERS_ERROR = 'FETCH_LEXERS_ERROR';
-export function getLexersError(error) {
+export const FETCH_LEXERS_FUNC_ERROR = 'FETCH_LEXERS_FUNC_ERROR';
+export const FETCH_LEXERS_CAT_ERROR = 'FETCH_LEXERS_CAT_ERROR';
+export function getLexersError(error, actionType) {
   return {
-    type: FETCH_LEXERS_ERROR,
+    type: actionType,
     payload: error
   };
 }
 
 export const RECEIVE_LEXERS = 'RECEIVE_LEXERS';
-export function receiveLexers(json) {
+export const RECEIVE_LEXERS_FUNC = 'RECEIVE_LEXERS_FUNC';
+export const RECEIVE_LEXERS_CAT = 'RECEIVE_LEXERS_CAT';
+export function receiveLexers(json, actionType) {
   return {
-    type: RECEIVE_LEXERS,
+    type: actionType,
     payload: json,
     receiveAt: Date.now()
   }
@@ -54,16 +60,15 @@ var config = {
   }
 };
 
-export function fetchLexers(categoryId) {
-  console.log('fetchLexers()', categoryId);
+function fetch(url, startAction, receiveAction, errorAction) {
   return function(dispatch) {
     // first dispatch: the app state is updated to inform that the API call is starting
-    dispatch(getLexers());
+    dispatch(getLexers(startAction));
 
-    const url = categoryId ? 'bycategory/' + categoryId : '';
+    // const url = param ? 'bycategory/' + param : '';
 
     return axios({
-      url: 'http://localhost:8080/glossa/lexers/' + url,
+      url: 'http://localhost:8080/glossa/lexers' + url,
       config: config,
       timeout: 20000,
       method: 'get',
@@ -71,13 +76,27 @@ export function fetchLexers(categoryId) {
     }).then((response) => {
       //let arr = Array.prototype.slice.call(response.data);
       //  console.log(arr);
-      dispatch(receiveLexers(response.data));
+      dispatch(receiveLexers(response.data, receiveAction));
     }).catch((error) => {
       console.log('error: ', error);
-      dispatch(getLexersError(error));
+      dispatch(getLexersError(error, errorAction));
     });
   }
 }
+export function fetchLexers(categoryId) {
+  // console.log('fetchLexers()', categoryId);
+  const url = categoryId ? '/bycategory/' + categoryId : '/';
+  return fetch(url, FETCH_LEXERS_START, RECEIVE_LEXERS, FETCH_LEXERS_ERROR);
+}
+export function fetchLexersFunc(categoryId) {
+  const url = '/bycategory/' + categoryId;
+  return fetch(url, FETCH_LEXERS_FUNC_START, RECEIVE_LEXERS_FUNC, FETCH_LEXERS_FUNC_ERROR);
+}
+export function fetchLexersCats(categoryId) {
+  const url = '/bycategory/' + categoryId;
+  return fetch(url, FETCH_LEXERS_CAT_START, RECEIVE_LEXERS_CAT, FETCH_LEXERS_CAT_ERROR);
+}
+
 export const SAVING_LEXER_START = 'SAVING_LEXER_START';
 export function savingLexer(lexer) {
   return {

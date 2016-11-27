@@ -24,6 +24,13 @@ import store from './redux';
 );*/
 
 const history = syncHistoryWithStore(browserHistory, store);
+
+if (module.hot) {
+  module.hot.accept('./redux', () => {
+    const nextRootReducer = require('./redux/index').default;
+    store .replaceReducer(nextRootReducer);
+  });
+}
 const app = document.getElementById('app');
 
 ReactDOM.render(
