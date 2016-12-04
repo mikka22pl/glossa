@@ -1,4 +1,5 @@
 import axios from 'axios';
+import config from './headers';
 
 export const FETCH_WORDS_START = 'FETCH_WORDS_START';
 export function getWords() {
@@ -53,14 +54,28 @@ function removeCategoryAction(json) {
   }
 }
 
-var config = {
-  headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Headers':'*',
-    'Access-Control-Allow-Origin' : 'http://localhost:8080',
-    'X-Requested-With': 'XMLHttpRequest'
+
+export const FETCH_WORD_START = 'FETCH_WORD_START';
+export const RECEIVE_WORD = 'RECEIVE_WORD';
+export const FETCH_WORD_ERROR = 'FETCH_WORD_ERROR';
+export function getWord() {
+  return {
+    type: FETCH_WORD_START
+  };
+}
+export function receiveWord(json) {
+  return {
+    type: RECEIVE_WORD,
+    payload: json,
+    receiveAt: Date.now()
   }
-};
+}
+export function getWordError(error) {
+  return {
+    type: FETCH_WORD_ERROR,
+    payload: error
+  };
+}
 
 export function fetchWords(languageId, limit = null) {
   return function(dispatch) {
@@ -98,9 +113,26 @@ export function fetchWordsWithGroups(languageId) {
     }).then ((response) => {
       dispatch(receiveWords(response.data));
     }).catch((error) => {
-      console.log('error', error);
       dispatch(getWordsError(error));
     })
+  }
+}
+
+export function fetchWord(wordId) {
+  return function(dispatch) {
+    // first dispatch: the app state is updated to inform that the API call is starting
+    dispatch(getWord());
+    return axios({
+      url: 'http://localhost:8080/glossa/word/' + wordId,
+      config: config,
+      timeout: 20000,
+      method: 'get',
+      responseType: 'json'
+    }).then((response) => {
+      dispatch(receiveWord(response.data));
+    }).catch((error) => {
+      dispatch(getWordError(error));
+    });
   }
 }
 

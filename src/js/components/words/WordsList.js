@@ -25,7 +25,7 @@ class WordsList extends React.Component {
     this.props.removeLexer(id, wordId);
   }
   render() {
-    console.log('this.props', this.props);
+    //console.log('this.props', this.props);
     const nodes = this.props.list || [];
     const nodesComp = nodes.map(function(item) {
       const clickHandler = this.onClickHandler;

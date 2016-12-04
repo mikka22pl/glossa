@@ -38,8 +38,12 @@ class Lesson extends React.Component {
     const words = this.props.sentence.words || [];
     //console.log(sentence.words.map((item) => {item.word.name}));
     const sentence = words.map(function(item) {
+      let transls = item.word.translations.map((t) => <p>{t.name}</p>);
       return (
-        <span key={item.word.id}> {item.word.name} </span>
+        <div class="col-sm-2" key={item.word.id}>
+          <p>{item.word.name}</p>
+          {transls}
+        </div>
       );
     });
     return (

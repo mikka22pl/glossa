@@ -16,6 +16,7 @@ import Lessons from "./pages/lessons/Lessons";
 import Lesson from "./pages/lessons/Lesson";
 import WordAdd from "./pages/words/WordAdd";
 import Words from "./pages/words/Words";
+import wordDetails from "./pages/words/wordDetails";
 import Mainpage from "./pages/mainpage";
 import store from './redux';
 
@@ -47,6 +48,7 @@ ReactDOM.render(
         <Route path="lessons(/:id)" name="lessons" component={Lessons}></Route>
         <Route path="lesson(/:languageId)(/:lessonId)" name="lesson" component={Lesson}></Route>
         <Route path="words(/:languageId)" name="words" component={Words}></Route>
+        <Route path="/word/:wordId" name="wordDetails" component={wordDetails}></Route>
       </Route>
     </Router>
   </Provider>,

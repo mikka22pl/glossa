@@ -13,6 +13,8 @@ import lessonReducer from './lessonReducer';
 import structuresReducer from './structuresReducer';
 import sentenceReducer from './sentenceReducer';
 import wordsReducer from './wordsReducer';
+import wordReducer from './wordReducer';
+import wordTranslationReducer from './wordTranslationReducer';
 
 const reducer = combineReducers({
   language: languageReducer,
@@ -26,6 +28,8 @@ const reducer = combineReducers({
   lexer: lexerReducer,
   lexers: lexersReducer,
   words: wordsReducer,
+  word: wordReducer,
+  wordTranslation: wordTranslationReducer,
   form: formReducer,
   routing: routerReducer
 });
