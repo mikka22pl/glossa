@@ -48,7 +48,7 @@ export function fetchSentence(structureId) {
       //  console.log(arr);
       dispatch(receiveSentence(response.data));
     }).catch((error) => {
-      console.err('error: ', error);
+      console.log('error: ', error);
       dispatch(getSentenceError(error));
     });
   }

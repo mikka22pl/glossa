@@ -50,6 +50,9 @@ class WordGroups extends React.Component {
     let suggestions = this.state.suggestions;
     return (
       <li key={item.id}>
+        <Link to={`/word/${item.id}`}>
+          Details
+        </Link>
         <Link class={'brick' + inner} onClick={this.handleClick}
           onMouseEnter={this.onMouseEnterHandler}
           onMouseLeave={this.onMouseLeaveHandler}>{item.name}</Link>

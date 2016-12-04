@@ -20,6 +20,8 @@ const initialState = {
   structures: {list: []},
   sentence: {},
   words: {list: []},
+  word: {},
+  wordTranslation: {}
 }
 
 const enhancers = compose(

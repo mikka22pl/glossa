@@ -26,7 +26,7 @@ class LexerSimpleList extends React.Component {
   }
   render() {
     const lexers = this.props.list || [];
-    console.log('length ', lexers);
+    //console.log('length ', lexers);
     const nodes = lexers.map(function(lex) {
       const clickHandler = this.clickHandler;
       return (
