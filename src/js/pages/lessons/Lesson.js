@@ -27,11 +27,11 @@ class Lesson extends React.Component {
   }
 
   render() {
-
-    const items = this.props.structures.list.map(function(item) {
+    const list = this.props.structures.list || [];
+    const items = list.map(function(item) {
       return (
         <div key={item.id}>
-          {item.ordering} {item.group.name} {item.type}
+          {item.ordering} {item.func.name} {item.type}
         </div>
       );
     });
@@ -39,7 +39,7 @@ class Lesson extends React.Component {
     //console.log(sentence.words.map((item) => {item.word.name}));
     const sentence = words.map(function(item) {
       return (
-        <span key={item.id}> {item.word.name} </span>
+        <span key={item.word.id}> {item.word.name} </span>
       );
     });
     return (
