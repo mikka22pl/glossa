@@ -135,3 +135,22 @@ export function saveLexerItem(lexer) {
     })
   };
 }
+
+export const CLEAR_LEXERS_FUNC = 'CLEAR_LEXERS_FUNC';
+export function clearLexersFunc(id) {
+  return (dispatch) => {
+    dispatch({
+      type: CLEAR_LEXERS_FUNC,
+      payload: id
+    })
+  }
+}
+export const CLEAR_LEXERS_CATS = 'CLEAR_LEXERS_CATS';
+export function clearLexersCats(id) {
+  return (dispatch) => {
+    dispatch({
+      type: CLEAR_LEXERS_CATS,
+      payload: id
+    })
+  }
+}

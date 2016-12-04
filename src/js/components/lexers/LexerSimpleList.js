@@ -7,17 +7,32 @@ class LexerSimpleList extends React.Component {
     super(props);
     this.clickHandler = this.clickHandler.bind(this);
   }
+
+  /*componentWillReceiveProps(nextProps) {
+    console.log('componentWillReceiveProps', nextProps);
+  }*/
   clickHandler(id) {
-    if (this.props.exclude) {
-      this.props.list.map((item) => {
-        item.on = (item.id == id) ? true : false
+    /*if (this.props.exclude) {
+      this.state.list.map((item) => {
+        item = (item.id == id) ? true : false
       });
-    }
+    }*/
     this.props.onClick(id);
+  }
+
+  clear() {
+    console.log('clear()');
+    //this.props.list.map((item) => { item.on = false });
   }
   render() {
     const lexers = this.props.list || [];
-    const nodes = lexers.map((lex) => <li key={lex.id}><ChooseBox {...lex} onClick={this.clickHandler.bind(this, lex.id)}/></li>);
+    console.log('length ', lexers);
+    const nodes = lexers.map(function(lex) {
+      const clickHandler = this.clickHandler;
+      return (
+        <li key={lex.id}><ChooseBox {...lex} onClick={clickHandler.bind(this, lex.id)}/></li>
+      );
+    }.bind(this));
     return (
       <div>
         <ul class="choose-box-list">

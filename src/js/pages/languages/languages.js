@@ -32,7 +32,7 @@ class Languages extends React.Component {
 				<div class="row languages">
 					<h3>Languages</h3>
 					<ToggleDisplay show={this.props.languages.fetching}>
-						<p>loading...</p>
+						<p>loading... <i class="fa fa-spinner fa-spin" aria-hidden="true"></i></p>
 					</ToggleDisplay>
 	        {nodes}
 				</div>

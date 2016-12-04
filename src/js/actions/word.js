@@ -24,7 +24,7 @@ export function receiveWords(json) {
 }
 
 export const ASSIGN_FUNCTION_START = 'ASSIGN_FUNCTION_START';
-function assignFunctionAction(assignee) {
+function assignFunctionStartAction(assignee) {
   return {
     type: ASSIGN_FUNCTION_START,
     payload: assignee
@@ -36,11 +36,20 @@ function assignFunctionAction(json) {
     type: ASSIGN_FUNCTION,
     payload: json
   }
-}export const ASSIGN_FUNCTION_ERROR = 'ASSIGN_FUNCTION_ERROR';
-function assignFunctionAction(error) {
+}
+export const ASSIGN_FUNCTION_ERROR = 'ASSIGN_FUNCTION_ERROR';
+function assignFunctionErrorAction(error) {
   return {
     type: ASSIGN_FUNCTION_ERROR,
     payload: error
+  }
+}
+
+export const REMOVE_WORD_CATEGORY = 'REMOVE_WORD_CATEGORY';
+function removeCategoryAction(json) {
+  return {
+    type: REMOVE_WORD_CATEGORY,
+    payload: json
   }
 }
 
@@ -89,7 +98,7 @@ export function fetchWordsWithGroups(languageId) {
     }).then ((response) => {
       dispatch(receiveWords(response.data));
     }).catch((error) => {
-      console.err('error', error);
+      console.log('error', error);
       dispatch(getWordsError(error));
     })
   }
@@ -113,10 +122,19 @@ export function saveWord(id, word, languageId) {
 
 export function assignFunction(assignee) {
   return function(dispatch) {
-    let word = assignee.word;
-    word.functions = assignee.func;
-    word.categories = assignee.cats;
-    dispatch(assignFunctionAction(assignee));
+    console.log('assignee', assignee);
+    const categories = assignee.func && assignee.func.id ?
+        [...assignee.cats, assignee.func] :
+        assignee.cats;
+    let word = {
+      ...assignee.word,
+      categories
+    };
+    /*word.categories = assignee.cats;
+    if (assignee.func && assignee.func.id) {
+      word.categories.push(assignee.func);
+    }*/
+    word.func = {};
     return axios({
       url: 'http://localhost:8080/glossa/assignWord',
       config: config,
@@ -125,8 +143,26 @@ export function assignFunction(assignee) {
       data: word
     }).then((response) => {
       //dispatch(assignFunctionAction(word));
+      dispatch(assignFunctionAction(word));
     }).catch ((error) => {
-      console.err('error ', error);
+      // console.err('error ', error);
+      dispatch(assignFunctionErrorAction(error));
+    });
+  }
+}
+export function removeLexer(id, wordId) {
+  return function (dispatch) {
+    const data = {lexerId: id, wordId: wordId};
+    return axios({
+      url: 'http://localhost:8080/glossa/removeLexer',
+      config: config,
+      timeout: 20000,
+      method: 'post',
+      data: data
+    }).then((response) => {
+      dispatch(removeCategoryAction(data));
+    }).catch((error) => {
+      console.log('error', error);
     });
   }
 }
