@@ -32,16 +32,17 @@ var config = {
   }
 };
 
-export function fetchSentence(structureId) {
+export function fetchSentence(template) {
   return function(dispatch) {
     // first dispatch: the app state is updated to inform that the API call is starting
     dispatch(getSentence());
 
     return axios({
-      url: 'http://localhost:8080/learn/' + structureId,
+      url: 'http://localhost:8080/glossa/learn/',
       config: config,
       timeout: 20000,
-      method: 'get',
+      method: 'post',
+      data: template,
       responseType: 'json'
     }).then((response) => {
       //let arr = Array.prototype.slice.call(response.data);

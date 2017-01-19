@@ -13,13 +13,14 @@ class LexersPage extends React.Component {
 
 	constructor(props) {
 		super(props);
-		const { id } = props.params;
-		console.log('lexers id ', id);
-		this.fetchLexers(id);
-		this.onEdit = this.onEdit.bind(this);
+		this.handleEdit = this.handleEdit.bind(this);
 		this.fetchLexers = this.fetchLexers.bind(this);
+		this.handleAddNew = this.handleAddNew.bind(this);
 	}
 	componentWillMount() {
+		const { id } = this.props.params;
+		console.log('lexers id ', id);
+		this.fetchLexers(id);
 		// this.props.fetchLexers();
     // const { category } = this.props.lexer;
     // const id = this.props.categoryId;
@@ -29,7 +30,11 @@ class LexersPage extends React.Component {
 		this.props.fetchLexers(id);
 	}
 
-	onEdit(lexer) {
+	handleAddNew() {
+		this.props.onEditLexer({category: {id: this.props.params.id}});
+	}
+
+	handleEdit(lexer) {
 		console.log('on edit lexers ',lexer);
 		this.props.onEditLexer(lexer);
 	}
@@ -41,13 +46,13 @@ class LexersPage extends React.Component {
 				<div class="row">
 					<Nav bsStyle="pills">
 						<LinkContainer to="/lexer-edit">
-							<NavItem>
+							<NavItem onClick={this.handleAddNew}>
 								Add lexer <Glyphicon glyph="plus-sign"/>
 							</NavItem>
 						</LinkContainer>
 					</Nav>
 				</div>
-				<LexersList onEdit={this.onEdit} onShow={this.fetchLexers} />
+				<LexersList onEdit={this.handleEdit} onShow={this.fetchLexers} />
 				<LexerDelete />
 			</div>
 		);
