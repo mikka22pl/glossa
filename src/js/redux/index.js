@@ -17,8 +17,9 @@ const initialState = {
   course: null,
   lessons: {list: []},
   lesson: null,
-  structures: {list: []},
   sentence: {},
+  templates: {list: []},
+  template: {details:{}},
   words: {list: []},
   word: {},
   wordTranslation: {}

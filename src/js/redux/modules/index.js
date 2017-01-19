@@ -4,14 +4,17 @@ import { routerReducer } from "react-router-redux";
 
 import lexerReducer from './lexerReducer';
 import lexersReducer from './lexersReducer';
+import lexersTreeReducer from './lexersTreeReducer';
 import languageReducer from './languageReducer';
 import languagesReducer from './languagesReducer';
 import coursesReducer from './coursesReducer';
 import courseReducer from './courseReducer';
 import lessonsReducer from './lessonsReducer';
 import lessonReducer from './lessonReducer';
-import structuresReducer from './structuresReducer';
+import templatesReducer from './templatesReducer';
+import templateReducer from './templateReducer';
 import sentenceReducer from './sentenceReducer';
+import sentenceTranslationReducer from './sentenceTranslationReducer';
 import wordsReducer from './wordsReducer';
 import wordReducer from './wordReducer';
 import wordTranslationReducer from './wordTranslationReducer';
@@ -23,10 +26,13 @@ const reducer = combineReducers({
   course: courseReducer,
   lessons: lessonsReducer,
   lesson: lessonReducer,
-  structures: structuresReducer,
+  templates: templatesReducer,
+  template: templateReducer,
   sentence: sentenceReducer,
+  sentenceTranslation: sentenceTranslationReducer,
   lexer: lexerReducer,
   lexers: lexersReducer,
+  lexersTree: lexersTreeReducer,
   words: wordsReducer,
   word: wordReducer,
   wordTranslation: wordTranslationReducer,

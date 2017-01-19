@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 class ChooseBox extends React.Component {
@@ -30,5 +30,11 @@ class ChooseBox extends React.Component {
     );
   }
 }
-
+ChooseBox.propTypes = {
+  name: PropTypes.string.isRequired,
+  active: PropTypes.bool,
+  category: PropTypes.object,
+  descr: PropTypes.string,
+  id: PropTypes.number
+}
 export default ChooseBox;

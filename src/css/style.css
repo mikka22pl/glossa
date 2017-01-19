@@ -70,6 +70,15 @@ ul.choose-box-list li {
 }
 
 
+.gl-tcell {
+  display: table-cell;
+  padding: 2px 4px;
+}
+.gl-mainsnt {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 div.ReactTags__tags {
     position: relative;
 }

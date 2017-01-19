@@ -1,19 +1,22 @@
-import { FETCH_STRUCTURE_START, FETCH_STRUCTURE_ERROR, RECEIVE_STRUCTURES } from '../../actions/structures';
+import {
+  FETCH_TEMPLATES_START,
+  FETCH_TEMPLATES_ERROR,
+  RECEIVE_TEMPLATES } from '../../actions/template/fetchTemplates';
 
-const structuresReducer = (state = {structures: []}, action) => {
+const templatesReducer = (state = {templates: []}, action) => {
   switch (action.type) {
-    case FETCH_STRUCTURE_START:
+    case FETCH_TEMPLATES_START:
       return {
         ...state,
         fetching: true
       };
-    case FETCH_STRUCTURE_ERROR:
+    case FETCH_TEMPLATES_ERROR:
       return {
         ...state,
         fetching: false,
         error: action.payload
       };
-    case RECEIVE_STRUCTURES:
+    case RECEIVE_TEMPLATES:
       return {
         ...state,
         fetching: false,
@@ -26,4 +29,4 @@ const structuresReducer = (state = {structures: []}, action) => {
   }
 };
 
-export default structuresReducer;
+export default templatesReducer;

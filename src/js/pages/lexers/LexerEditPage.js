@@ -12,15 +12,15 @@ class LexerEditPage extends React.Component {
     const { category } = this.props.lexer;
     const { id } = this.props.params;
 
-    console.log('id = ', id);
+    /*console.log('id = ', id);
     if (!id) {
       this.props.onEditLexer({id: 0, name: '', descr: ''});
-    }
+    }*/
       //const id = this.props.categoryId;
     this.saveLexer = this.saveLexer.bind(this);
     this.onEdit = this.onEdit.bind(this);
-    console.log('fetching lexers in LexerEditpage' + JSON.stringify(category));
-    this.props.fetchLexers(category ? category.id : undefined);
+    //console.log('fetching lexers in LexerEditpage' + JSON.stringify(category));
+    //this.props.fetchLexers(category ? category.id : undefined);
   }
 
   componentWillMount() {

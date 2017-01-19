@@ -154,3 +154,13 @@ export function clearLexersCats(id) {
     })
   }
 }
+
+export const CHOOSE_LEXER = 'CHOOSE_LEXER';
+export function chooseLexer(id) {
+  return (dispatch) => {
+    dispatch({
+      type: CHOOSE_LEXER,
+      payload: id
+    });
+  }
+}

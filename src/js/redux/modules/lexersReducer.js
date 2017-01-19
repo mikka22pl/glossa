@@ -7,10 +7,12 @@ import {
   FETCH_LEXERS_CAT_ERROR,
   RECEIVE_LEXERS_CAT,
   CLEAR_LEXERS_FUNC,
-  CLEAR_LEXERS_CATS
+  CLEAR_LEXERS_CATS,
+  CHOOSE_LEXER
 } from '../../actions/lexer';
+import _ from 'lodash';
 
-const lexersReducer = (state = {structures: []}, action) => {
+const lexersReducer = (state = {lexers: []}, action) => {
   switch (action.type) {
     case FETCH_LEXERS_START:
       return {
@@ -114,6 +116,26 @@ const lexersReducer = (state = {structures: []}, action) => {
         categories: {
           ...state.categories,
           list: catnewList
+        }
+      };
+
+    case CHOOSE_LEXER:
+      const indx = _.findIndex(state.categories.list, ['id', action.payload]);
+      console.log('reducer CHOOSE_LEXER', indx);
+      if (indx === -1) {
+        return state;
+      }
+      const catnew2List = state.categories.list.map((item) => {
+        if (action.payload == item.id) {
+          item.active = !item.active;
+        }
+        return item;
+      });
+      return {
+        ...state,
+        categories: {
+          ...state.categories,
+          list: catnew2List
         }
       };
 
